@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { QueryClientProvider, QueryClient } from "react-query";
 
 import ToastMain from '../ToastMain';
-import Navbar from '../Navbar';
+// import Navbar from '../Navbar';
 
 // Query client for react-query
 const queryClient = new QueryClient();

@@ -26,12 +26,14 @@ const ToastMain = () => {
 
     return (
         // Make it flex
-        <div className="flex justify-around flex-col items-center w-full h-full flex-wrap px-20 bg-blue-500">
+        <div className="flex justify-around flex-col items-center w-full h-full flex-wrap px-4 bg-blue-500">
             <div className="flex justify-evenly flex-col items-center w-full h-1/5">
-                <h1 className="text-6xl mb-10">
-                    Too Toasty
-                </h1>
-
+                <div className="text-center mb-10">
+                    <h1 className="text-6xl mb-1">
+                        Too Toasty
+                    </h1>
+                    <h3 className="text-2xl">Is it safe to put it in the toaster?</h3>
+                </div>
                 <form className="flex items-center w-full" onSubmit={handleSubmit}>
                     <label htmlFor="simple-search" className="sr-only">Search</label>
                     <div className="relative w-full">
@@ -45,14 +47,14 @@ const ToastMain = () => {
 
             </div>
 
-            <div className="results flex flex-col">
+            <div className="results flex flex-col mt-8">
                 {
                     hasResults ?
                         <>
-                            <img src={image} className="max-w-xs max-h-xs" alt="Toaster" />
-                            <p>
+                            <p className="text-center mb-8 text-xl">
                                 {results}
                             </p>
+                            <img src={image} className="max-w-xs max-h-xs" alt="Toaster" />
                         </>
                         :
                         <img src={ToasterImage} className="max-w-xs max-h-xs" alt="Toaster" />
