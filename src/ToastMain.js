@@ -7,16 +7,16 @@ const safeItems = ['bread', 'toast'];
 const ToastMain = () => {
 
     const [hasResults, setHasResults] = useState(false);
-    const [results, setResults] = useState("");
+    const [isToastable, setIsToastable] = useState(false);
+    const [item, setItem] = useState('');
     const [image, setImage] = useState(ToasterImage);
 
     const handleSubmit = (event) => {
         event.preventDefault()
         const input = event.target[0].value;
         setHasResults(true);
-        setResults(
-            `${capitaliseFirstLetter(input)} is ${!safeItems.includes(input) ? "not" : ""} safe to put in a toaster`
-        );
+        setItem(capitaliseFirstLetter(input));
+        setIsToastable(!safeItems.includes(input));
         setImage(!safeItems.includes(input) ? ToastedImage : ToasterImage);
     }
 
@@ -52,7 +52,8 @@ const ToastMain = () => {
                     hasResults ?
                         <>
                             <p className="text-center mb-8 text-xl">
-                                {results}
+                            {/* let res = `${capitaliseFirstLetter(input)} is ${!safeItems.includes(input) ? <span className='text-red-700'>NOT</span> : ""} safe to put in a toaster`; */}
+                            {item} is {isToastable ? <span className='text-red-700'>NOT</span> : ""} safe to put in a toaster
                             </p>
                             <img src={image} className="max-w-xs max-h-xs" alt="Toaster" />
                         </>
